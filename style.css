@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: rgb(226, 69, 11);
+  --secondary-color: rgb(241, 235, 235);
+  --small-padding: 1.5em;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 50px;
+  color: rgb(17, 17, 17);
+}
+header {
+  background-color: var(--primary-color);
+  padding: var(--small-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 500px) {
+  header {
+    flex-direction: column;
+  }
+  .logo {
+    margin-bottom: 1em;
+  }
+  .function-icons {
+    top: 0;
+  }
+}
+@media (max-width: 600px) {
+  .book-background {
+    flex-direction: column;
+
+    padding: 0;
+    margin: 0;
+  }
+  .hero-page-writings {
+    line-height: 1.1;
+  }
+  .hero-page-writings h1 {
+    line-height: 1;
+    margin-bottom: 1em;
+  }
+  .fa-book-open {
+    margin-top: 0.3em;
+  }
+}
+@media (max-width: 320px) {
+  .function-icons {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .function-icons i {
+    margin-bottom: 0.5em;
+  }
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+.logo {
+  display: flex;
+}
+.fa-book {
+  font-size: 2rem;
+  color: var(--secondary-color);
+}
+
+header p {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-left: 0.3em;
+  color: var(--secondary-color);
+}
+.function-icons {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 3px;
+}
+.function-icons i {
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+.function-icons i + i {
+  margin-left: 1em;
+}
+.function-icons i .tag-space {
+  margin-left: 0.5em;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  gap: 10px;
+  padding: var(--small-padding);
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+}
+.fa-github {
+  color: var(--secondary-color);
+}
+main {
+  padding: var(--small-padding);
+}
+.circle-design {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgb(75, 211, 75);
+  margin-bottom: 1em;
+  position: relative;
+}
+.circle-design::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: var(--primary-color);
+}
+.book-background {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 0;
+  max-width: 1000px;
+  border: 1px solid red;
+}
+.hero-page-writings {
+  line-height: 1.3;
+  width: 40%;
+  max-width: 400px;
+  border: 1px solid red;
+  padding: 1em 0;
+}
+.fa-book-open {
+  font-size: 10em;
+  align-self: flex-start;
+  color: rgb(75, 211, 75);
+}
