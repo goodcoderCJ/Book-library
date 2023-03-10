@@ -1,70 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/fontawesome/css/fontawesome.css">
-  <link rel="stylesheet" href="./assets/fontawesome/css/brands.css">
-  <link rel="stylesheet" href="./assets/fontawesome/css/solid.css">
-  <link rel="stylesheet" href="style.css">
-  <title>Book Library</title>
-</head>
-<body>
-  <header>
-    <div class="logo">
-      <i class="fas fa-book"></i><p>Lii-brary</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/fontawesome/css/fontawesome.css" />
+    <link rel="stylesheet" href="./assets/fontawesome/css/brands.css" />
+    <link rel="stylesheet" href="./assets/fontawesome/css/solid.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Book Library</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <i class="fas fa-book"></i>
+        <p>Lii-brary</p>
+      </div>
+
+      <div class="function-icons">
+        <i class="fas fa-search"><span class="tag-space">Search</span></i>
+        <i class="fas fa-plus"><span class="tag-space">New book</span></i>
+        <i class="fas fa-ellipsis-v"><span class="tag-space">Book log</span></i>
+      </div>
+    </header>
+    <!-- search input for getting available book -->
+    <div class="search-book">
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="search book title"
+      />
     </div>
-    <div class="function-icons">
-      <i class="fas fa-search"><span class="tag-space">Search</span></i>
-      <i class="fas fa-plus"><span class="tag-space">New book</span></i>
-      <i class="fas fa-ellipsis-v"><span class="tag-space">Book log</span></i>
-    </div>
-  </header>
-  <main>
-    <section class="book-background">
-      <div class="hero-page-writings">
-        <div class="circle-design"></div>
-        <h1>Think no more about the info</h1>
-        <p>Got a book to read or must have read it and you wish to keep the information. That's what Lii-brary is, get the help you seek</p>
-      </div>
-      <div class="hero-image">
-      <i class="fas fa-book-open"></i>
-    </section>
-    <form class="first-form" action="./" method="post">
-      
-      <fieldset>
-        <legend>Book info</legend>
-        <i class="fas fa-times"></i>
-        <div class="title">
-          <label for="title">Title :</label>
-          <input type="text" name="title" id="title">
+    <main>
+      <!-- book log -->
+      <div class="book-log">
+        <div class="book-log-close">
+          <i class="fas fa-times"></i>
         </div>
-        <div class="author">
-          <label for="author">Author :</label>
-          <input type="text" name="author" id="author">
-        </div>
-        <div class="page">
-          <label for="page">What is the No of book pages :</label>
-          <input type="tel" name="page" id="page">
-        </div>
-       <div class="read">
-        <label for="read" class="read-container">
-        <input type="checkbox" name="read" id="read">
-        <span class="checkmark"></span>
-        Have you read the book </label>
+        <div class="book-length"></div>
+        <div class="no-of-read"></div>
+        <div class="no-of-unread"></div>
       </div>
-      <div class="btn-container">
-        <button class="btn add-book"><i class="fas fa-plus"></i><span class="form-btn-span">Add book</span></button>
-        <button class="btn close-btn">Cancel</button>
-      </div>
-      </fieldset>
-    </form>
-    <section class="added-books"></section>
-  </main>
-  <footer>
-    <p>Designed by goodcodercjay <a href="https://github.com/goodcodercjay" target="_blank"><i class="fab fa-github"></i></a></p>
-  </footer>
-  <script src="./script.js"></script>
-</body>
+      <!-- form for adding book -->
+      <form class="first-form" action="./" method="post" name="first-form">
+        <fieldset>
+          <legend>Book info</legend>
+          <i class="fas fa-times"></i>
+          <span id="error"></span>
+          <div class="title">
+            <label for="title">Title :</label>
+            <input type="text" name="title" id="title" />
+          </div>
+          <div class="author">
+            <label for="author">Author :</label>
+            <input type="text" name="author" id="author" />
+          </div>
+          <div class="page">
+            <label for="page"
+              >What is the No of book pages(Numbers only) :</label
+            >
+            <input type="num" name="pages" id="pages" />
+          </div>
+          <div class="read">
+            <label for="read" class="read-container">
+              <input type="checkbox" name="read" id="read" />
+              <span class="checkmark"></span>
+              Have you read the book
+            </label>
+          </div>
+          <div class="btn-container">
+            <button class="btn add-book">
+              <i class="fas fa-plus"></i
+              ><span class="form-btn-span" type="submit">Add book</span>
+            </button>
+            <button type="button" class="btn close-btn">Cancel</button>
+          </div>
+        </fieldset>
+      </form>
+      <!-- Adding each book created via form inputs data of library array -->
+      <section class="added-books"></section>
+    </main>
+    <footer>
+      <p>
+        Designed by goodcodercjay
+        <a href="https://github.com/goodcodercjay" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+      </p>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
 </html>

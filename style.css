@@ -6,10 +6,11 @@
   box-sizing: border-box;
 }
 :root {
-  --primary-color: rgb(226, 69, 11);
+  --primary-color: rgb(7, 12, 27);
   --secondary-color: rgb(241, 235, 235);
   --small-padding: 1.5em;
-  --tertiary-color: rgb(75, 211, 75);
+  --tertiary-color: rgb(9, 116, 148);
+  --aboveTertiary-color: rgb(7, 76, 97);
 }
 html {
   position: relative;
@@ -17,8 +18,11 @@ html {
 }
 body {
   margin-bottom: 50px;
-  color: rgb(17, 17, 17);
+  color: rgb(211, 206, 206);
+  background-color: rgb(17, 16, 37);
 }
+
+/* header style */
 header {
   background-color: var(--primary-color);
   padding: var(--small-padding);
@@ -26,6 +30,7 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+
 @media (max-width: 500px) {
   header {
     flex-direction: column;
@@ -37,24 +42,7 @@ header {
     top: 0;
   }
 }
-@media (max-width: 600px) {
-  .book-background {
-    flex-direction: column;
 
-    padding: 0;
-    margin: 0;
-  }
-  .hero-page-writings {
-    line-height: 1.1;
-  }
-  .hero-page-writings h1 {
-    line-height: 1;
-    margin-bottom: 1em;
-  }
-  .fa-book-open {
-    margin-top: 0.3em;
-  }
-}
 @media (max-width: 320px) {
   .function-icons {
     flex-direction: column;
@@ -81,6 +69,19 @@ header p {
   margin-left: 0.3em;
   color: var(--secondary-color);
 }
+.search-book {
+  margin: 0 auto;
+  padding: 2em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-book input {
+  outline: none;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 3px;
+}
 .function-icons {
   display: flex;
   align-items: center;
@@ -97,6 +98,23 @@ header p {
 .function-icons i .tag-space {
   margin-left: 0.5em;
 }
+/* book-log details*/
+.book-log {
+  position: absolute;
+  top: 3em;
+  right: 2em;
+  padding: 1em;
+  background-color: var(--aboveTertiary-color);
+  border-radius: 10px;
+}
+.book-log-close .fa-times {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+/* footer style */
 footer {
   position: absolute;
   bottom: 0;
@@ -114,44 +132,11 @@ footer {
 .fa-github {
   color: var(--secondary-color);
 }
+/* main style */
 main {
   padding: var(--small-padding);
 }
-.circle-design {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: var(--tertiary-color);
-  margin-bottom: 1em;
-  position: relative;
-}
-.circle-design::after {
-  content: "";
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  background-color: var(--primary-color);
-}
-.book-background {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1em 0;
-  max-width: 1000px;
-  border: 1px solid red;
-}
-.hero-page-writings {
-  line-height: 1.3;
-  width: 40%;
-  max-width: 400px;
-  border: 1px solid red;
-  padding: 1em 0;
-}
-.fa-book-open {
-  font-size: 10em;
-  align-self: flex-start;
-  color: var(--tertiary-color);
-}
+
 .first-form {
   position: absolute;
   top: 3em;
@@ -170,7 +155,7 @@ main {
   cursor: pointer;
 }
 .first-form fieldset {
-  background-color: rgb(223, 66, 18);
+  background-color: var(--primary-color);
   padding: 2em 1em;
   border: 2px solid var(--tertiary-color);
   border-radius: 10px 10px 0 0;
@@ -186,7 +171,7 @@ main {
   padding: 0.3em;
 }
 .first-form input[type="text"],
-.first-form input[type="tel"] {
+.first-form input[type="num"] {
   width: 100%;
   outline: none;
   border: none;
@@ -226,7 +211,7 @@ main {
   background-color: var(--secondary-color);
 }
 .read-container input:checked ~ .checkmark {
-  background-color: greenyellow;
+  background-color: var(--tertiary-color);
 }
 .checkmark::after {
   content: "";
@@ -299,4 +284,69 @@ main {
 }
 .hide {
   display: none;
+}
+
+.added-books {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+}
+.each-book {
+  background-color: var(--primary-color);
+  font-weight: 700;
+  padding: 2em 0 2em 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+.book-title,
+.book-author,
+.book-page {
+  margin-bottom: 0.3em;
+}
+.readBtn,
+#removeBtn {
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.readBtn {
+  margin-right: 0.5em;
+}
+#removeBtn {
+  background-color: var(--aboveTertiary-color);
+  color: var(--secondary-color);
+}
+@media (max-width: 300px) {
+  .each-book {
+    font-weight: 400;
+  }
+}
+@media (max-width: 445px) {
+  #removeBtn {
+    margin-top: 0.5em;
+  }
+}
+@media (max-width: 400px) {
+  .added-books {
+    grid-template-columns: 1fr;
+  }
+  .each-book {
+    padding: 2em 1em 2em 1em;
+  }
+}
+@media (max-width: 200px) {
+  .search-book input {
+    width: 70%;
+  }
+  .fa-book,
+  .logo p {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 230px) {
+  footer p {
+    font-size: 0.7rem;
+  }
 }
